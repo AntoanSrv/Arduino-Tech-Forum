@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Forum.Models.ForumThread>
+
+    @foreach (var thread in Model)
+    {
+    <tr class="recent-row">
+        <td><a href="/ForumThread/Details/@thread.Id">@thread.Title</a></td>
+        @if (thread.Author != null)
+        {
+            var authorImageSrc = thread.Author.GetProfileImageSrc();
+            <td><img src="@authorImageSrc"/></td>
+            <td>@thread.Author.UserName</td>
+            <td>@thread.CreationDate</td>
+        }
+        else
+        {
+            @thread.Title
+        }
+    </tr>
+       }

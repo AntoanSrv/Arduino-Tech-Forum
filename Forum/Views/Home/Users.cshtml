@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+@model List<Forum.Models.ApplicationUser>
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            Score
+        </th>
+        <th>
+            Total Points
+        </th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>
+                @user.UserName
+            </td>
+            
+                
+        </tr>
+    }
+</table>

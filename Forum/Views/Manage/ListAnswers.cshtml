@@ -1,0 +1,49 @@
+﻿
+@using Forum.Models.Answers
+@using Microsoft.Ajax.Utilities
+@model IEnumerable<RegisteredUserAnswer>
+
+<h2>List of your answers</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Thread Title:
+        </th>
+        <th>
+            Published On:
+        </th>
+        <th>
+            Points:
+        </th>
+    </tr>
+    @foreach (var answer in Model)
+    {
+        int points = answer.PositivePoints - answer.NegativePoints;
+        <tr>
+            <td>
+                @if (answer.ForumThread.Title != null)
+                {
+                    @Html.DisplayFor(modelItem => answer.ForumThread.Title)
+                }
+                else
+                {
+                    @:-----
+                }
+            </td>
+            <td>
+                @if (answer.CreationDate != null)
+                {
+                    @Html.DisplayFor(modelItem => answer.CreationDate)
+                }
+                else
+                {
+                    @:-----
+                }
+            </td>
+            <td>
+                @points
+            </td>
+        </tr>
+    }
+</table>

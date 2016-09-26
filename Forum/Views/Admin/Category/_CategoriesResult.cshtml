@@ -1,0 +1,17 @@
+﻿@model List<Forum.Models.Category>
+
+@if (Model.Any())
+{
+    foreach (var category in Model)
+    {
+        <h3>@category.Name</h3>
+        @Html.ActionLink("Edit", "EditCategory", new { id = category.Id })<br/>
+        @Html.ActionLink("Delete", "DeleteCategory", new { id = category.Id })
+    }
+}
+else
+{
+  <div>No result</div>
+}
+
+
